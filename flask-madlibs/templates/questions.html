@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>It's MADLIBS!</title>
+    </head>
+    <body>
+        <h1>It's MADLIBS!</h1>
+
+        <form action="/story">
+            {% for p in prompts %}
+                <div>
+                    {{p}}:
+                    <input name="{{p}}">
+                </div>
+            {% endfor %}
+            <button>SUBMIT!</button>
+        </form>
+    </body>
+    
+</html>
