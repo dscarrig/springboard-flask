@@ -4,11 +4,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>BOGGLE</title>
+        <link rel="stylesheet" href="/static/style.css">
     </head>
 
-    <body>
-      <table>
-        {% for row in boggle_game.make_board() %}
+    <body id="body">
+      <table class="board">
+        {% for row in my_board %}
         <tr>
           {% for letter in row %}
             <td>{{letter}}</td>
@@ -16,10 +17,37 @@
         </tr>
         {% endfor %}
       </table>
+
+      <p>High Score: 
+        <b>{{ highscore }}</b> 
+        in {{ nplays }} plays
+      </p>
+
+      <p>
+        Score: <b class="score">0</b>
+        Seconds Left: <b class="timer"></b>
+      </p>
       
-      <form>
-        
+      <form action="/submit" method="POST" class="submit-word">
+        <input type="text" id="word" name="word">
+        <input type="submit" value="Submit Word">
       </form>
+
+      <p class="msg">
+        <!-- our JS will put messages here dynamically -->
+      </p>
+
+      <ul class="words">
+        <!-- our JS will words here as they score -->   
+      </ul>
+
+      <script src="http://unpkg.com/jquery"></script>
+      <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+      <script src="/static/boggle.js"></script>
+
+      <script>
+        let code = new BoggleCode("body");
+      </script>
 
     </body>
 </html>

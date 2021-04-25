@@ -17,7 +17,7 @@ def select_survey():
 @app.route("/begin", methods=["POST"])
 def start_survey():
     session[RESPONSES_KEY] = []
-    return redirect("questions/0")
+    return redirect("/questions/0")
 
 @app.route("/answer", methods=["POST"])
 def answer_question():

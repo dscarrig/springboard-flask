@@ -1,0 +1,7 @@
+.board {
+    border: solid 5px black;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 200%;
+    width: 200px
+  }
